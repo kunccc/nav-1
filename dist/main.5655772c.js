@@ -170,13 +170,18 @@ window.onbeforeunload = function () {
 };
 
 $(document).on('keypress', function (e) {
-  var key = e.key;
+  var input = document.querySelector('.input');
 
-  for (var i = 0; i < hashMap.length; i++) {
-    if (hashMap[i].logo.toLowerCase() === key) {
-      window.open(hashMap[i].url);
+  if (document.activeElement !== input) {
+    //判断当前活动元素是否是input，不是则执行。
+    var key = e.key;
+
+    for (var i = 0; i < hashMap.length; i++) {
+      if (hashMap[i].logo.toLowerCase() === key) {
+        window.open(hashMap[i].url);
+      }
     }
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=main.a5151eb7.js.map
+//# sourceMappingURL=main.5655772c.js.map

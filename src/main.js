@@ -47,10 +47,13 @@ window.onbeforeunload = () => {
     localStorage.setItem('x', string)
 }
 $(document).on('keypress', (e) => {
-    const {key} = e
-    for(let i=0; i<hashMap.length; i++){
-        if(hashMap[i].logo.toLowerCase() === key){
-            window.open(hashMap[i].url)
+    const input = document.querySelector('.input')
+    if(document.activeElement !== input){  //判断当前活动元素是否是input，不是则执行。
+        const {key} = e
+        for(let i=0; i<hashMap.length; i++){
+            if(hashMap[i].logo.toLowerCase() === key){
+                window.open(hashMap[i].url)
+            }
         }
-    }
+    }   
 })
